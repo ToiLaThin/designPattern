@@ -1,0 +1,30 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "creational", "creational", "{BA1E4B15-ECAE-417F-B43B-1CFA94DCE6D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "builder", "builder", "{4DC92DA6-81E5-4552-A644-A45106A9E995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "builder", "builder\builder.csproj", "{E0F601E9-4151-47DF-B283-F9133A860E0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0F601E9-4151-47DF-B283-F9133A860E0E} = {4DC92DA6-81E5-4552-A644-A45106A9E995}
+		{4DC92DA6-81E5-4552-A644-A45106A9E995} = {BA1E4B15-ECAE-417F-B43B-1CFA94DCE6D7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0F601E9-4151-47DF-B283-F9133A860E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F601E9-4151-47DF-B283-F9133A860E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F601E9-4151-47DF-B283-F9133A860E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F601E9-4151-47DF-B283-F9133A860E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
