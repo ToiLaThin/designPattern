@@ -10,15 +10,15 @@ public interface IRichKidMeal : IMeal {
 }
 
 public interface IMealCooker {
-    void CookMainDish(string mainDish);
-    void CookSideDish(string sideDish);
-    void CookDrink(string drink);
-    void CookDessert(string dessert);
+    IMealCooker CookMainDish(string mainDish);
+    IMealCooker CookSideDish(string sideDish);
+    IMealCooker CookDrink(string drink);
+    IMealCooker CookDessert(string dessert);
     IMeal GetMeal();
 }
 
 public interface IRichKidMealCooker : IMealCooker {
-    void CookSpecialDish(string specialDish);
+    IRichKidMealCooker CookSpecialDish(string specialDish);
 }
 
 public class RichKidMeal : IRichKidMeal {
@@ -58,26 +58,31 @@ public class NormalMeal : IMeal {
 public class RichKidMealCooker : IMealCooker, IRichKidMealCooker {
     private IMeal _meal = new RichKidMeal();
 
-    public void CookMainDish(string mainDish) {
+    public IMealCooker CookMainDish(string mainDish) {
         _meal.MainDish = mainDish;
+        return this;
     }
 
-    public void CookSideDish(string sideDisk) {
+    public IMealCooker CookSideDish(string sideDisk) {
         _meal.SideDish = sideDisk;
+        return this;
     }
 
-    public void CookDrink(string drink) {
+    public IMealCooker CookDrink(string drink) {
         _meal.Drink = drink;
+        return this;
     }
 
-    public void CookDessert(string dessert) {
+    public IMealCooker CookDessert(string dessert) {
         _meal.Dessert = dessert;
+        return this;
     }
 
     //new
-    public void CookSpecialDish(string specialDish) {
+    public IRichKidMealCooker CookSpecialDish(string specialDish) {
         var rich_meal = _meal as RichKidMeal;
         rich_meal.SpecialDish = specialDish;
+        return this;
     }
 
     public IMeal GetMeal() {
@@ -89,12 +94,7 @@ namespace CommonDesignPattern.Builder {
     public class Program {
         public static void Main(string[] args) {
             IRichKidMealCooker cooker = new RichKidMealCooker();
-            cooker.CookMainDish("Steak");
-            cooker.CookSideDish("Fries");
-            cooker.CookDrink("Coke");
-            cooker.CookDessert("Ice Cream");
-            cooker.CookSpecialDish("Caviar");
-
+            (cooker.CookMainDish("Steak").CookSideDish("Fries").CookDrink("Coke").CookDessert("Ice Cream") as IRichKidMealCooker).CookSpecialDish("Caviar");
             var meal = cooker.GetMeal();
             meal.Review();
             System.Console.WriteLine("Next Meal");
